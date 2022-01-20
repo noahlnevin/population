@@ -13,10 +13,10 @@ namespace population
       Species Dwarf = new Species();
       Species Orc = new Species();
 
-      InitializePopulation(Human, "Human", 20, 10, 5, 1);
-      InitializePopulation(Elf, "Elf", 20, 8, 7, .9);
-      InitializePopulation(Dwarf, "Dwarf", 20, 12, 7, .8);
-      InitializePopulation(Orc, "Orc", 20, 12, 5, 1.1);
+      InitializePopulation(Human, "Human", 20, 10, 5, 1, .1);
+      InitializePopulation(Elf, "Elf", 20, 8, 7, .9, .08);
+      InitializePopulation(Dwarf, "Dwarf", 20, 12, 7, .8, .06);
+      InitializePopulation(Orc, "Orc", 20, 12, 5, 1.1, .12);
 
       for (int i=0; i<numRounds; i++) 
       {
@@ -27,9 +27,9 @@ namespace population
       }
 
       System.Console.WriteLine($"Human population is now {Human.wholeNumber}.");
-      System.Console.WriteLine($"Elf population is now {Elf.decimalNumber}.");
-      System.Console.WriteLine($"Dwarf population is now {Dwarf.decimalNumber}.");
-      System.Console.WriteLine($"Orc population is now {Orc.decimalNumber}.");
+      System.Console.WriteLine($"Elf population is now {Elf.wholeNumber}.");
+      System.Console.WriteLine($"Dwarf population is now {Dwarf.wholeNumber}.");
+      System.Console.WriteLine($"Orc population is now {Orc.wholeNumber}.");
 
       /*while (playerOption) 
       {
@@ -38,13 +38,14 @@ namespace population
       }*/
     }
 
-    private static void InitializePopulation(Species species, string name, double number, int health, int damage, double rate)
+    private static void InitializePopulation(Species species, string name, double number, int health, int damage, double rate, double mortality)
     {
       species.name = name;
       species.decimalNumber = number;
       species.health = health;
       species.damage = damage;
       species.rate = rate;
+      species.mortality = mortality;
     }
 
     private static int StartingText() 
