@@ -6,7 +6,6 @@ namespace population
   {
     public string name;
     public double decimalNumber;
-
     public double wholeNumber;
     public int damage;
     public int health;
